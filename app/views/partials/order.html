@@ -1,0 +1,23 @@
+<div ng-include="'partials/navbar'"></div>
+<div class="container">
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Orders</h3>
+			  </div>
+    		<p>Orders created, you can search for existing and create new on the same page</p>
+			  <div class="panel-body">
+	    		<div class="row">
+			      <div class="col-md-4">
+			      	<list list="list"></list>
+			      </div>
+			      <div class="col-md-8">
+			      	<form-directive formName="Order"></form-directive>
+			      </div>
+	    		</div>
+			  </div>
+			</div>
+    	</div>
+	</div>
+</div>

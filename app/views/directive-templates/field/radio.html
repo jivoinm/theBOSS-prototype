@@ -1,0 +1,9 @@
+<label class="control-label">{{field.field_title}}</label>
+<div ng-repeat="option in field.field_options">
+	<div class="radio">
+	  <label>
+	    <input type="radio" value="{{option.option_value}}" name="{{field.field_title | nospace}}" for="{{field.field_title | nospace}}_{{option.option_title | nospace}}id" ng-model="field.field_value" ng-required="field.field_required">
+	    {{option.option_title}}
+	  </label>
+	</div>
+</div>

@@ -1,0 +1,95 @@
+<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+<div class="panel panel-default">
+  <div class="panel-heading">{{ form.form_name }} <span ng-show="previewMode">Form Preview</span> 
+    <div class="dropdown btn-group pull-right" ng-show="superuser">
+
+        <button class="btn btn-default btn-xs" ng-show="!editmode" ng-click="editmode=true">
+             <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+        <button class="btn btn-default btn-xs dropdown-toggle" ng-show="editmode">
+             <span class="glyphicon glyphicon-plus"></span>
+        </button>
+         <ul class="dropdown-menu">
+            <li ng-repeat="type in field_types">
+              <a ng-click="addField($event,type.name)">{{type.value}}</a>
+            </li>
+        </ul>
+    </div>
+  </div>
+  <div class="panel-body">
+    <form role="form" class="form">
+        <div ng-show="previewMode">
+            <div class="form-group">
+               <input type="text" class="form-control" id="formNamelid" placeholder="Form Name" ng-model="form.form_name" ng-required="true">
+            </div>
+            <div class="form-group">
+               <input type="text" class="form-control" id="formModuelid" placeholder="Module Name" ng-model="form.module" ng-required="true">
+            </div>
+        </div>
+        <div ng-repeat="field in form.form_fields">
+            <accordion close-others="oneAtATime" ng-show="editmode" class="clearfx">
+                <accordion-group heading="{{field.field_title}}">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <field-directive field="field"></field-directive>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dropdown btn-group pull-right form-group">
+                                <button class="btn btn-danger btn-xs" ng-confirm-click="are you sure?" ng-click="deleteField(field)">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="well">
+
+                          <div class="form-group">
+                            <label for="fieldName">Field Name</label>
+                            <input type="text" placeholder="Field Name" class="form-control" id="fieldName" ng-model="field.field_title" value="{{field.field_title}}">
+                          </div>
+                            <div class="form-group">
+                                <label for="fieldType">Field Type</label>
+                                  <select ng-model="field.field_type" class="form-control" placeholder="Field type" id="fieldtype" ng-options="type.name as type.value for type in field_types"></select>
+                            </div>
+                          <div class="form-group">
+                            <label for="fieldValue">Field Value</label>
+                            <input type="text" placeholder="Field Value" class="form-control" id="fieldValue" ng-model="field.field_value" value="{{field.field_title}}">
+                          </div>
+                          <div class="form">
+                              <input type="checkbox" id="fieldIsRequired" ng-model="field.field_required">
+                              <label  for="fieldIsRequired">Is Required?</label>
+                          </div>
+                          <div class="form-group" ng-show="showAddOptions(field)">
+                            <table class="table">
+                                <th>Option value</th>
+                                <th>Option label</th>
+                                <th></th>
+                                <tr ng-repeat="option in field.field_options">
+                                    <td><input type="text" class="form-control" ng-model="option.option_value" value="{{option.option_value}}"></td>
+                                    <td><input type="text" class="form-control" ng-model="option.option_title" value="{{option.option_title}}"></td>
+                                    <td>
+                                        <a class="btn btn-danger btn-xs right" type="button" ng-click="deleteOption(field, option)"><span class="glyphicon glyphicon-minus"></span></a></td>
+                                </tr>
+                            </table>
+                          </div>
+                            <button type="button" class="btn btn-default btn-sm" ng-show="showAddOptions(field)" ng-click="addOption(field)">
+                              <span class="glyphicon glyphicon-plus"></span> Add Option
+                            </button>
+                    </div>
+            </accordion-group>
+          </accordion>
+        	<div class="form-group" ng-show="!editmode">
+            	<field-directive field="field"></field-directive>
+        	</div>
+        </div>
+         <hr>
+         <button type="button" class="btn btn-default btn-sm" ng-click="save()" ng-show="editmode && form.form_fields.length > 0">
+             <span class="glyphicon glyphicon-floppy-save"></span> Save Form
+         </button>
+         <button type="button" class="btn btn-default btn-sm" ng-click="submit()" ng-show="!editmode && form.form_fields.length > 0">
+             <span class="glyphicon glyphicon-floppy-save"></span> Submit Form
+         </button>
+    </form>
+   </div>
+</div>
