@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('theBossApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth,FormService) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Order Fields',
       'link': '#/order-fields'
@@ -20,8 +20,5 @@ angular.module('theBossApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
-    
-    FormService.load().then(function(forms){
-      $scope.forms = forms;
-    });
+  
   });

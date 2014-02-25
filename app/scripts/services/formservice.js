@@ -4,6 +4,8 @@ angular.module('theBossApp')
   .service('FormService', function FormService($http) {
 
     return {
+        submitted: false,
+        editedModelId: 0,
         fields:[
             {
                 name : 'textfield',
@@ -53,6 +55,17 @@ angular.module('theBossApp')
                 return response.data;
             })
         },
+        loadLatest: function (number_of_records,form_name,cbSuccess){
+            return $http.get('/api/formvalues/'+number_of_records+'/'+form_name).then(function(response) {
+                cbSuccess(response.data);
+            })
+        },
+
+        editFormById: function (id,form_name,cbSuccess){
+            return $http.get('/api/form/'+id+'/'+form_name).then(function(response) {
+                cbSuccess(response.data);
+            })   
+        },
         save: function(form,cbError,cbSuccess) {
             return $http(
                 {
@@ -66,13 +79,26 @@ angular.module('theBossApp')
                 cbError(response.err);
             });
         },
-        submit: function(form_fields,cbError,cbSuccess){
-            console.log(form_fields);
+        submit: function(form,cbError,cbSuccess){
+            
+            var formValue = {
+                form_name:form.form_name,
+                module:form.module,
+                created_by: form.created_by,
+                last_updated: new Date(),
+                form_fields: []
+            };
+            angular.forEach(form.form_fields,function(value,key){
+                this.push({
+                    field_title: value.field_title,
+                    field_value: value.field_value,
+                });
+            },formValue.form_fields);
             return $http(
                 {
                     url: '/api/submitform',
                     method: 'POST',
-                    data: form_fields,
+                    data: formValue,
                     headers: {'Content-Type': 'application/json'}
                 }).success(function (response) {
                     cbSuccess(response.data);

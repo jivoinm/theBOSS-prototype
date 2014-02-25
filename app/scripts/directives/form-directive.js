@@ -6,6 +6,7 @@ angular.module('theBossApp')
         scope.field_types = FormService.fields;
         scope.superuser = true;
         scope.oneAtATime = true;
+        scope.submitted = false;
         FormService.form(attrs.formname).then(function(form) {
           if (form) {
             scope.form = form; 
@@ -13,22 +14,43 @@ angular.module('theBossApp')
         });        
     };
 	return {
-        controller: function($scope){
+            controller: function($scope) {
             $scope.submit = function(){
-                $scope.form.submitted = true;
-                FormService.submit($scope.form.form_fields,function(res){
+                $scope.submitted = true;
+                $scope.form.created_by = $scope.user;
+                FormService.submit($scope.form,function(res){
                     //error cb
                     $scope.alerts = [
                             { type: 'danger', msg: 'There was an error submitting the form'},
                             { type: 'danger', msg: res},
                             ];    
+
                    },function(res){
-                    //success cb
-                    $scope.alerts = [
+                        FormService.submitted = true;
+                        //success cb
+                        $scope.alerts = [
                             { type: 'success', msg: 'Form was saved with success'}
                             ];
+
                 })
-            }
+            };
+
+            $scope.$watch(function() { return FormService.editedModelId}, function(newData,oldData) { 
+             if(newData && newData !== oldData){
+                
+                FormService.editFormById(newData,$scope.formName, function(res){
+                    $scope.form = res;
+                });
+             }
+            },true);
+
+            $scope.$watch('$last', function(newData,oldData) { 
+             if(newData && newData !== oldData){
+                console.log('loaded last');
+                $scope.loaded = true;
+             }
+            },true);
+
 
             $scope.cancel = function(){
                 alert('Form canceled..');
@@ -116,19 +138,11 @@ angular.module('theBossApp')
                 else
                     return false;
             }
-
-            // var initialLoad = true;
-            // $scope.$watchCollection('form.form_fields', function(newValue, oldValue) { 
-            //     if(!initialLoad){
-            //         $scope.save();
-            //     }
-            //     initialLoad = false;
-            //    },true);
         },
         templateUrl: './views/directive-templates/form/form.html',
-        restrict: 'E',
+        restrict: 'EA',
         scope: {
-            formName:'=formName',
+            formName:'=formName'
         },
         link: linker
 

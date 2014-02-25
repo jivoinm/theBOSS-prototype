@@ -27,18 +27,6 @@ angular.module('theBossApp', [
         controller: 'SettingsCtrl',
         authenticate: true
       })
-      .when('/form-builder', {
-        templateUrl: 'partials/form-builder',
-        controller: 'FormBuilderCtrl'
-      })
-      .when('/forms', {
-        templateUrl: 'partials/forms',
-        controller: 'FormsCtrl'
-      })
-      .when('/form-loader/:form_name', {
-        templateUrl: 'partials/form-loader',
-        controller: 'FormLoaderCtrl'
-      })
       .when('/order', {
         templateUrl: 'partials/order',
         controller: 'OrderCtrl'

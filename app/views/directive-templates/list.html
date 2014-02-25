@@ -1,11 +1,23 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <div class="list-group">
-	  <a href="#/{{prefix}}/{{item.id}}" class="list-group-item" ng-repeat="item in list">
-	    <h4 class="list-group-item-heading">List group item heading</h4>
-	    <p class="list-group-item-text">csdsvcxv</p>
-	  </a>
-	</div>
+    <ul class="list-group">
+    	<li class="list-group-item" ng-repeat="item in list">
+    		<h4 class="list-group-item-heading">{{item.title}}: {{item.value}}</h4>
+    		<div class="dropdown btn-group pull-right">
+		        <button class="btn btn-default btn-xs dropdown-toggle">
+	             <span class="glyphicon glyphicon-cog"></span>
+		        </button>
+		         <ul class="dropdown-menu">
+		            <li>
+		              <a ng-click="edit(item)">Edit</a>
+		            </li>
+		        </ul>
+	    	</div>
+		    <p class="list-group-item-text">
+		    	<div ng-repeat="detail in item.details">{{detail}}</div>
+		    </p>
+    	</li>
+	</ul>
 	  <div ng-hide="list.length">
 	   Nothing to show yet...
 	  </div>

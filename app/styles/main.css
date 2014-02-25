@@ -321,3 +321,8 @@ border-color: #fff;
     }
 
 }
+
+.list-group-item-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+}
