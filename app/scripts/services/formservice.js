@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('theBossApp')
-  .service('FormService', function FormService($http) {
+  .service('FormService', function FormService($http,usSpinnerService,$rootScope) {
 
     return {
         submitted: false,
@@ -56,8 +56,10 @@ angular.module('theBossApp')
             })
         },
         loadLatest: function (number_of_records,form_name,cbSuccess){
+            
             return $http.get('/api/formvalues/'+number_of_records+'/'+form_name).then(function(response) {
                 cbSuccess(response.data);
+            
             })
         },
 

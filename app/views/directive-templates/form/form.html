@@ -16,7 +16,8 @@
         </ul>
     </div>
   </div>
-  <div class="panel-body" ng-show="loaded">
+<formLoading>
+  <div class="panel-body">
     <form role="form" class="form">
         <div ng-show="previewMode">
             <div class="form-group">
@@ -26,8 +27,9 @@
                <input type="text" class="form-control" id="formModuelid" placeholder="Module Name" ng-model="form.module" ng-required="true">
             </div>
         </div>
+        
         <div ng-repeat="field in form.form_fields">
-            <accordion close-others="oneAtATime" ng-show="editmode" class="clearfx">
+            <accordion close-others="oneAtATime" ng-show="editmode">
                 <accordion-group heading="{{field.field_title}}">
                     <div class="row">
                         <div class="col-md-9">

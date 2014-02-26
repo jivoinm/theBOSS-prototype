@@ -32,7 +32,7 @@ angular.module('theBossApp')
         }
 
         return {
-            template: '<div>{{field}}</div>',
+            template: '<div ng-cloak>{{field}}</div>',
             restrict: 'E',
             scope: {
                 field:'='

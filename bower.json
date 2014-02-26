@@ -14,7 +14,8 @@
     "angular-strap": "~0.7.5",
     "components-font-awesome": "~4.0.3",
     "angular-bootstrap": "~0.10.0",
-    "angular-dialog-service": "~3.1.0"
+    "angular-dialog-service": "~3.1.0",
+    "angular-spinner": "~0.3.1"
   },
   "devDependencies": {
     "angular-mocks": "1.2.11",

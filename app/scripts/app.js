@@ -6,7 +6,8 @@ angular.module('theBossApp', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap',
-  'dialogs'
+  'dialogs',
+  'angularSpinner'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
