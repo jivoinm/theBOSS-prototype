@@ -63,6 +63,13 @@ angular.module('theBossApp')
             })
         },
 
+        query: function (query,cbSuccess){
+            return $http.post('/api/formvalues/',JSON.stringify(query)).then(function(response) {
+                cbSuccess(response.data);
+            
+            })
+        },
+
         editFormById: function (id,form_name,cbSuccess){
             return $http.get('/api/form/'+id+'/'+form_name).then(function(response) {
                 cbSuccess(response.data);
@@ -81,9 +88,10 @@ angular.module('theBossApp')
                 cbError(response.err);
             });
         },
-        submit: function(form,cbError,cbSuccess){
+        submit: function(formValueId,form,cbError,cbSuccess){
             
             var formValue = {
+                formValueId:formValueId,
                 form_name:form.form_name,
                 module:form.module,
                 created_by: form.created_by,
@@ -107,6 +115,23 @@ angular.module('theBossApp')
             }).error(function (response){
                 cbError(response.err);
             });
+        },
+
+        getDateRangeSinceNow: function(range){
+            var now = new Date();
+            switch (range) {
+              case 'today':
+                range = new Date(now.setDate(now.getDate()-1));
+              case 'week':
+                range = new Date(now.setDate(now.getDate()-7));
+              case 'month':
+                range = new Date(now.setMonth(now.getMonth()-1));
+              case 'year':
+                range = new Date(now.setYear(now.getYear()-1));
+              case 'default':
+                range = now;
+            }
+            return range;
         }
     };
 });

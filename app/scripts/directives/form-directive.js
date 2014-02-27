@@ -7,6 +7,7 @@ angular.module('theBossApp')
         scope.superuser = true;
         scope.oneAtATime = true;
         scope.submitted = false;
+        scope.formName = attrs.formname;
         FormService.form(attrs.formname).then(function(form) {
           if (form) {
             scope.form = form; 
@@ -18,7 +19,7 @@ angular.module('theBossApp')
             $scope.submit = function(){
                 $scope.submitted = true;
                 $scope.form.created_by = $scope.user;
-                FormService.submit($scope.form,function(res){
+                FormService.submit($scope.formValueId,$scope.form,function(res){
                     //error cb
                     $scope.alerts = [
                             { type: 'danger', msg: 'There was an error submitting the form'},
@@ -39,7 +40,8 @@ angular.module('theBossApp')
              if(newData && newData !== oldData){
                 
                 FormService.editFormById(newData,$scope.formName, function(res){
-                    $scope.form = res;
+                    $scope.formValueId = res.formValueId;
+                    $scope.form = res.form;
                 });
              }
             },true);
@@ -142,7 +144,7 @@ angular.module('theBossApp')
         templateUrl: './views/directive-templates/form/form.html',
         restrict: 'EA',
         scope: {
-            formName:'=formName'
+           // formName:'=formName'
         },
         link: linker
 

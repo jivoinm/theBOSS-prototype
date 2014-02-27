@@ -11,12 +11,24 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'app/bower_components/jquery/jquery.js',
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/angular-resource/angular-resource.js',
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js',
+      'app/bower_components/autotype/index.js',
+      'app/bower_components/bootstrap-timepicker/js/bootstrap-timepicker.min.js',
+      'app/bower_components/bootstrap-select/bootstrap-select.js',
+      'app/bower_components/angular-strap/dist/angular-strap.min.js',
+      'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'app/bower_components/angular-dialog-service/dialogs.js',
+      'app/bower_components/spin.js/spin.js',
+      'app/bower_components/angular-spinner/angular-spinner.js',
+
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',

@@ -22,5 +22,18 @@
 	   Nothing to show yet...
 	  </div>
   </div>
-  <div class="panel-footer">Panel footer</div>
+  <div class="panel-footer">
+	<li class="dropdown">
+	  <a class="dropdown-toggle">
+	    Show items form
+	  </a>
+	  <ul class="dropdown-menu">
+	    <li>
+	      <a ng-click="showLast('today')">today</a>
+	      <a ng-click="showLast('month')">last month</a>
+	      <a ng-click="showLast('year')">last year</a>
+	    </li>
+	  </ul>
+	</li>
+  </div>
 </div>
