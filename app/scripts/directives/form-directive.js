@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('theBossApp')
-  .directive('formDirective', function (FormService,$dialogs) {
+  .directive('formDirective', ['FormService','$dialogs', function (FormService,$dialogs) {
     var linker = function(scope, element,attrs) {
         scope.field_types = FormService.fields;
         scope.superuser = true;
@@ -149,4 +149,4 @@ angular.module('theBossApp')
         link: linker
 
     };
-  });
+  }]);

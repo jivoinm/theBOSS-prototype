@@ -6,7 +6,7 @@
     "json3": "~3.2.6",
     "es5-shim": "~2.1.0",
     "jquery": "~2.1.0",
-    "bootstrap": "~3.0.3",
+    "bootstrap": "~3.1.1",
     "angular-resource": "1.2.11",
     "angular-cookies": "1.2.11",
     "angular-sanitize": "1.2.11",
@@ -15,7 +15,9 @@
     "components-font-awesome": "~4.0.3",
     "angular-bootstrap": "~0.10.0",
     "angular-dialog-service": "~3.1.0",
-    "angular-spinner": "~0.3.1"
+    "angular-spinner": "~0.3.1",
+    "metisMenu": "*",
+    "angular-ui-calendar": "~0.8.0"
   },
   "devDependencies": {
     "angular-mocks": "1.2.11",

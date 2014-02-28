@@ -7,7 +7,8 @@ angular.module('theBossApp', [
   'ngRoute',
   'ui.bootstrap',
   'dialogs',
-  'angularSpinner'
+  'angularSpinner',
+  'ui.calendar'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -27,10 +28,6 @@ angular.module('theBossApp', [
         templateUrl: 'partials/settings',
         controller: 'SettingsCtrl',
         authenticate: true
-      })
-      .when('/order', {
-        templateUrl: 'partials/order',
-        controller: 'OrderCtrl'
       })
       .when('/order', {
         templateUrl: 'partials/order',
@@ -67,3 +64,22 @@ angular.module('theBossApp', [
       }
     });
   });
+
+$(function() {
+
+    $('#side-menu').metisMenu();
+
+});
+
+//Loads the correct sidebar on window load,
+//collapses the sidebar on window resize.
+$(function() {
+    $(window).bind("load resize", function() {
+        console.log($(this).width())
+        if ($(this).width() < 768) {
+            $('div.sidebar-collapse').addClass('collapse')
+        } else {
+            $('div.sidebar-collapse').removeClass('collapse')
+        }
+    })
+})

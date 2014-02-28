@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('theBossApp')
-  .directive('list', function (FormService) {
+  .directive('list', ['FormService', function (FormService) {
     var loadLatest = function(nrOfRecords,formName,scope){
         FormService.loadLatest(nrOfRecords,formName,function(list){
             processTheList(scope,list);
@@ -61,4 +61,4 @@ angular.module('theBossApp')
 
         }
     };
-  });
+  }]);

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('theBossApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location) {
+  .controller('LoginCtrl', ['$scope', 'Auth','$location', function ($scope, Auth, $location) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -23,4 +23,4 @@ angular.module('theBossApp')
         });
       }
     };
-  });
+  }]);

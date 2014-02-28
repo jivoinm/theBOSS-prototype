@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('theBossApp')
-  .directive('formLoading', function (usSpinnerService) {
+  .directive('formLoading', ['usSpinnerService', function (usSpinnerService) {
 	 return {
             template: '<span us-spinner spinner-key="spinner-1"></span>',
             link: function (scope, element, attrs) {
@@ -25,4 +25,4 @@ angular.module('theBossApp')
                 })
             }
         };
-});
+}]);
