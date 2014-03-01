@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('theBossApp')
-  .directive('list', ['FormService', function (FormService) {
+  .directive('list', ['FormService','$filter', function (FormService,$filter) {
     var loadLatest = function(nrOfRecords,formName,scope){
         FormService.loadLatest(nrOfRecords,formName,function(list){
             processTheList(scope,list);
@@ -13,7 +13,11 @@ angular.module('theBossApp')
                 var item_details = [];
                 angular.forEach(value.form_fields,function(value,key){
                     if(key > 0 && value.field_value){
-                        this.push(value.field_title + ':' + value.field_value);    
+                        var fieldValue = value.field_type === 'date' ?
+                            $filter('date')(value.field_value,'medium') :
+                            value.field_value;
+
+                        this.push({title:value.field_title, value:fieldValue});
                     }
                 },item_details);
 

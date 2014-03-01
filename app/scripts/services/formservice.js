@@ -102,6 +102,7 @@ angular.module('theBossApp')
                 this.push({
                     field_title: value.field_title,
                     field_value: value.field_value,
+                    field_type: value.field_type
                 });
             },formValue.form_fields);
             return $http(
