@@ -6,7 +6,7 @@ angular.module('theBossApp')
         scope.field_types = FormService.fields;
         scope.superuser = true;
         scope.oneAtATime = true;
-        scope.submitted = false;
+        scope.loadingList = false;
         scope.formName = attrs.formname;
         FormService.form(attrs.formname).then(function(form) {
           if (form) {
@@ -17,7 +17,7 @@ angular.module('theBossApp')
 	return {
             controller: function($scope) {
             $scope.submit = function(){
-                $scope.submitted = true;
+                $scope.loadingList = true;
                 $scope.form.created_by = $scope.user;
                 FormService.submit($scope.formValueId,$scope.form,function(res){
                     //error cb
@@ -27,7 +27,7 @@ angular.module('theBossApp')
                             ];    
 
                    },function(res){
-                        FormService.submitted = true;
+                        FormService.loadingList = true;
                         //success cb
                         $scope.alerts = [
                             { type: 'success', msg: 'Form was saved with success'}

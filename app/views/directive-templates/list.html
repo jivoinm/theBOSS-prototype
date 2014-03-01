@@ -1,5 +1,15 @@
+<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
 <div class="panel panel-default">
   <div class="panel-body">
+    <div class="input-group custom-search-form">
+         <input type="text" class="form-control" placeholder="Search...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+     </div>
+      <hr>
 
       <accordion close-others="oneAtATime=true">
           <accordion-group ng-repeat="item in list" is-open="isopen">
@@ -28,17 +38,6 @@
 	  </div>
   </div>
   <div class="panel-footer">
-	<li class="dropdown">
-	  <a class="dropdown-toggle">
-	    Show items form
-	  </a>
-	  <ul class="dropdown-menu">
-	    <li>
-	      <a ng-click="showLast('today')">today</a>
-	      <a ng-click="showLast('month')">last month</a>
-	      <a ng-click="showLast('year')">last year</a>
-	    </li>
-	  </ul>
-	</li>
+      <a href="loadMore()" class="btn btn-default btn-block">Load more...</a>
   </div>
 </div>

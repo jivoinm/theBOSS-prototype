@@ -4,7 +4,7 @@ angular.module('theBossApp')
   .service('FormService', function FormService($http,usSpinnerService,$rootScope) {
 
     return {
-        submitted: false,
+        loadingList: false,
         editedModelId: 0,
         fields:[
             {
@@ -75,6 +75,13 @@ angular.module('theBossApp')
                 cbSuccess(response.data);
             })   
         },
+
+        deleteFormValue: function (id,cbSuccess) {
+            return $http.delete('/api/formValue/'+id).then(function(response) {
+                cbSuccess(response.data);
+            })
+        },
+
         save: function(form,cbError,cbSuccess) {
             return $http(
                 {

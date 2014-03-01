@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('theBossApp')
-  .directive('list', ['FormService','$filter', function (FormService,$filter) {
-    var loadLatest = function(nrOfRecords,formName,scope){
-        FormService.loadLatest(nrOfRecords,formName,function(list){
+  .directive('list', ['FormService','$filter','$dialogs', function (FormService,$filter,$dialogs) {
+    var loadLatest = function(scope){
+        scope.isCollapsed = true;
+        FormService.loadLatest(scope.numberOfRecords,scope.formName,function(list){
             processTheList(scope,list);
         });
     };
@@ -44,6 +45,18 @@ angular.module('theBossApp')
                 FormService.query(query, function(list){
                     processTheList($scope,list);
                 })
+            };
+            $scope.delete = function(field){
+                var dlg = $dialogs.confirm('Please Confirm','Are you sure you want to delete '+field.value+' ?');
+                dlg.result.then(function(btn){
+                    FormService.deleteFormValue(field.id,function(res){
+                        loadLatest($scope);
+                        $scope.alerts = [
+                            { type: 'success', msg: res}
+                        ];
+                    });
+                },function(btn){
+                });
             }
         },
         
@@ -54,12 +67,12 @@ angular.module('theBossApp')
             numberOfRecords:'@nroffrecords'
         },
         link: function(scope, element,attrs){
-            loadLatest(scope.numberOfRecords,scope.formName,scope);
+            loadLatest(scope);
             
-            scope.$watch(function() { return FormService.submitted;}, function(data) { 
+            scope.$watch(function() { return FormService.loadingList;}, function(data) {
               if(data){
-                loadLatest(scope.numberOfRecords,scope.formName,scope);
-                FormService.submitted = false;
+                loadLatest(scope);
+                FormService.loadingList = false;
               }
             });
 

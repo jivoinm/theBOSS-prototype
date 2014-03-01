@@ -2,19 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cacb0bd8-d580-412f-b6bd-6753288c6e28" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/directives/form-directive.js" afterPath="$PROJECT_DIR$/app/scripts/directives/form-directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/directive-templates/form/form.html" afterPath="$PROJECT_DIR$/app/views/directive-templates/form/form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/controllers/forms.js" afterPath="$PROJECT_DIR$/lib/controllers/forms.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/formservice.js" afterPath="$PROJECT_DIR$/app/scripts/services/formservice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/directive-templates/list.html" afterPath="$PROJECT_DIR$/app/views/directive-templates/list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/directives/list.js" afterPath="$PROJECT_DIR$/app/scripts/directives/list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes.js" afterPath="$PROJECT_DIR$/lib/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="theBOSS.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393695585841" ignored="false" />
     <file path="/main.html" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393700621340" ignored="false" />
-    <file path="/list.js" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393702016078" ignored="false" />
-    <file path="/formservice.js" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393701893167" ignored="false" />
+    <file path="/list.js" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393710985941" ignored="false" />
+    <file path="/formservice.js" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393711045668" ignored="false" />
     <file path="/field-directive.js" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393702349933" ignored="false" />
-    <file path="/list.html" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393707378166" ignored="false" />
-    <file path="/forms.js" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393703506000" ignored="false" />
+    <file path="/list.html" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393709600513" ignored="false" />
+    <file path="/forms.js" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393710863943" ignored="false" />
     <file path="/.gitignore" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393708617424" ignored="false" />
+    <file path="$PROJECT_DIR$/.tmp/styles/main.css" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393708725484" ignored="false" />
+    <file path="/a.dummy" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393710253084" ignored="false" />
+    <file path="/routes.js" changelist="cacb0bd8-d580-412f-b6bd-6753288c6e28" time="1393710693609" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,19 +52,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="list.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/directive-templates/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="48" selection-start="807" selection-end="807" vertical-scroll-proportion="-9.375">
+            <state line="1" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.018450184">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="5" selection-start="42" selection-end="42" vertical-scroll-proportion="0.07168459">
+            <state line="4" column="5" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,7 +82,7 @@
       <file leaf-file-name="form.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/directive-templates/form/form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="44" selection-start="1007" selection-end="1007" vertical-scroll-proportion="-13.75">
+            <state line="0" column="101" selection-start="0" selection-end="101" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -82,16 +91,25 @@
       <file leaf-file-name="list.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/directives/list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="18" selection-start="1235" selection-end="1245" vertical-scroll-proportion="0.0">
+            <state line="52" column="36" selection-start="2117" selection-end="2117" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form-directive.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/directives/form-directive.js">
+      <file leaf-file-name="formservice.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/formservice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
+            <state line="78" column="47" selection-start="2302" selection-end="2302" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="52" selection-start="1068" selection-end="1083" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -100,25 +118,16 @@
       <file leaf-file-name="forms.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/controllers/forms.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="32" selection-start="2751" selection-end="2751" vertical-scroll-proportion="0.0">
+            <state line="110" column="0" selection-start="3134" selection-end="3134" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dummydata.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/config/dummydata.js">
+      <file leaf-file-name="form-directive.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/directives/form-directive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="22" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form-value.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/models/form-value.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="18" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0">
+            <state line="72" column="30" selection-start="2763" selection-end="2895" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -144,15 +153,17 @@
       <list>
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/views/partials/main.html" />
-        <option value="$PROJECT_DIR$/app/scripts/services/formservice.js" />
-        <option value="$PROJECT_DIR$/app/scripts/directives/list.js" />
         <option value="$PROJECT_DIR$/app/scripts/directives/field-directive.js" />
         <option value="$PROJECT_DIR$/app/scripts/directives/form-directive.js" />
-        <option value="$PROJECT_DIR$/lib/controllers/forms.js" />
         <option value="$PROJECT_DIR$/lib/config/dummydata.js" />
         <option value="$PROJECT_DIR$/app/styles/main.css" />
-        <option value="$PROJECT_DIR$/app/views/directive-templates/list.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/lib/routes.js" />
+        <option value="$PROJECT_DIR$/lib/controllers/forms.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/formservice.js" />
+        <option value="$PROJECT_DIR$/app/scripts/directives/list.js" />
+        <option value="$PROJECT_DIR$/app/views/directive-templates/form/form.html" />
+        <option value="$PROJECT_DIR$/app/views/directive-templates/list.html" />
       </list>
     </option>
   </component>
@@ -500,8 +511,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298611" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24954017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24954017" sideWeight="0.6701389" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -509,7 +521,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -577,13 +588,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.bowerrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="371" column="0" selection-start="9071" selection-end="9071" vertical-scroll-proportion="0.19713262">
@@ -605,23 +609,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/formservice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="57" selection-start="3382" selection-end="3382" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/directives/field-directive.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="0" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/form-directive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -633,23 +623,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/controllers/forms.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="32" selection-start="2751" selection-end="2751" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/config/dummydata.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="22" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="18" selection-start="1235" selection-end="1245" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -668,23 +644,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="5" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="52" selection-start="1068" selection-end="1083" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/controllers/forms.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="0" selection-start="3134" selection-end="3134" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/directives/form-directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="30" selection-start="2763" selection-end="2895" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/formservice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="47" selection-start="2302" selection-end="2302" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/directives/list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="36" selection-start="2117" selection-end="2117" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/directive-templates/form/form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="44" selection-start="1007" selection-end="1007" vertical-scroll-proportion="-13.75">
+        <state line="0" column="101" selection-start="0" selection-end="101" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/directive-templates/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="48" selection-start="807" selection-end="807" vertical-scroll-proportion="-9.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="5" selection-start="42" selection-end="42" vertical-scroll-proportion="0.07168459">
+        <state line="1" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.018450184">
           <folding />
         </state>
       </provider>
