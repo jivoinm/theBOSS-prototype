@@ -36,10 +36,10 @@ angular.module('theBossApp')
             $scope.edit = function(item){
                 FormService.editedModelId = item.id;
             };
-            $scope.showLast = function(range){
+            $scope.search = function(query){
                 var query = {
-                    form_name: $scope.formName,
-                    last_updated: {'$gt': new Date(FormService.getDateRangeSinceNow(range))} 
+                    'form_name': $scope.formName,
+                    'form_fields': {'$elemMatch':{'field_value': query}}
                 };
 
                 FormService.query(query, function(list){

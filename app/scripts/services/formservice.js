@@ -64,7 +64,11 @@ angular.module('theBossApp')
         },
 
         query: function (query,cbSuccess){
-            return $http.post('/api/formvalues/',JSON.stringify(query)).then(function(response) {
+            var json = JSON.stringify(query, function(key, value) {
+                if (value.constructor === RegExp) return value.toString();
+                return value;
+            });
+            return $http.post('/api/formvalues/',json).then(function(response) {
                 cbSuccess(response.data);
             
             })
@@ -83,13 +87,7 @@ angular.module('theBossApp')
         },
 
         save: function(form,cbError,cbSuccess) {
-            return $http(
-                {
-                    url: '/api/form',
-                    method: 'POST',
-                    data: form,
-                    headers: {'Content-Type': 'application/json'}
-                }).success(function (response) {
+            return $http.post('/api/form', form).success(function (response) {
                     cbSuccess(response.data);
             }).error(function (response){
                 cbError(response.err);

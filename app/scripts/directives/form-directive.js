@@ -8,10 +8,21 @@ angular.module('theBossApp')
         scope.oneAtATime = true;
         scope.loadingList = false;
         scope.formName = attrs.formname;
-        FormService.form(attrs.formname).then(function(form) {
+        FormService.form(scope.formName).then(function(form) {
           if (form) {
             scope.form = form; 
-          }  
+          }else{
+              var dlg = $dialogs.confirm('Please Confirm','There is not form created yet with name '+scope.formName+', do you want to create it?');
+              dlg.result.then(function(btn){
+                  scope.form = {
+                      form_name: scope.formName,
+                      module: scope.formName,
+                      form_fields:[]
+                  };
+                  scope.save();
+              },function(btn){
+              });
+          }
         });        
     };
 	return {

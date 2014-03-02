@@ -33,6 +33,14 @@ angular.module('theBossApp', [
         templateUrl: 'partials/order',
         controller: 'OrderCtrl'
       })
+      .when('/material', {
+        templateUrl: 'partials/material',
+        controller: 'MaterialCtrl'
+      })
+      .when('/calendar', {
+        templateUrl: 'partials/calendar',
+        controller: 'CalendarCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
