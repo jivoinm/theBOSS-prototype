@@ -94,6 +94,9 @@ angular.module('theBossApp')
                     field_title: 'New Field',
                     field_type: field_type
                 };
+                if(field_type==='composite-element'){
+                    new_field.composite = [];
+                }
                 $scope.form.form_fields.push(new_field);
             }
 

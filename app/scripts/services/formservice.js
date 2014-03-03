@@ -42,6 +42,10 @@ angular.module('theBossApp')
             {
                 name : 'hidden',
                 value : 'Hidden'
+            },
+            {
+                name : 'composite-element',
+                value : 'Composite Element'
             }
         ],
         form: function (form_name) {

@@ -4,7 +4,7 @@ angular.module('theBossApp').
    directive('sbTopNav', function() {
         return {
             restrict: 'E',
-            replace: true,
+            //replace: true,
             scope: {
                 title: '='
             },
@@ -14,7 +14,7 @@ angular.module('theBossApp').
     directive('sbTopNavMessages', ['$http', function($http) {
         return {
             restrict: 'E',
-            replace: true,
+           // replace: true,
             templateUrl: '/views/directive-templates/layouts/top-nav-messages.html',
             link: function (scope, element, attrs) {
                 if (!attrs.from) {
@@ -31,7 +31,7 @@ angular.module('theBossApp').
     directive('sbTopNavTasks', ['$http', function($http) {
         return {
             restrict: 'E',
-            replace: true,
+            //replace: true,
             templateUrl: '/views/directive-templates/layouts/top-nav-tasks.html',
             link: function (scope, element, attrs) {
                 if (!attrs.from) {
@@ -48,7 +48,7 @@ angular.module('theBossApp').
     directive('sbTopNavAlerts', ['$http', function($http) {
         return {
             restrict: 'E',
-            replace: true,
+            //replace: true,
             templateUrl: '/views/directive-templates/layouts/top-nav-alerts.html',
             link: function (scope, element, attrs) {
                 if (!attrs.from) {
@@ -65,21 +65,21 @@ angular.module('theBossApp').
     directive('sbTopNavUser', function() {
         return {
             restrict: 'E',
-            replace: true,
+            //replace: true,
             templateUrl: '/views/directive-templates/layouts/top-nav-user.html'
         };
     }).
     directive('sbSidebar', function () {
         return {
             restrict: 'E',
-            replace: true,
+            //replace: true,
             templateUrl: '/views/directive-templates/layouts/sidebar.html'
         };
     }).
     directive('sbSidebarSearch', function () {
         return {
             restrict: 'E',
-            replace: true,
+            //replace: true,
             templateUrl: '/views/directive-templates/layouts/sidebar-search.html'
         };
     }).
