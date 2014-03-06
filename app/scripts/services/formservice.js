@@ -9,7 +9,13 @@ angular.module('theBossApp')
         fields:[
             {
                 name : 'textfield',
-                value : 'Textfield'
+                value : 'Textfield',
+                actions: [
+                    {
+                        name: 'Add formula',
+                        callback: 'calculate'
+                    }
+                ]
             },
             {
                 name : 'email',
@@ -25,7 +31,13 @@ angular.module('theBossApp')
             },
             {
                 name : 'dropdown',
-                value : 'Dropdown List'
+                value : 'Dropdown List',
+                actions: [
+                    {
+                        name: 'Depends on',
+                        callback: 'updateSelected'
+                    }
+                ]
             },
             {
                 name : 'date',
@@ -44,7 +56,7 @@ angular.module('theBossApp')
                 value : 'Hidden'
             },
             {
-                name : 'composite-element',
+                name : 'composite',
                 value : 'Composite Element'
             }
         ],

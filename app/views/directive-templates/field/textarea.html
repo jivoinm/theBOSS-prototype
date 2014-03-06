@@ -1,3 +1,5 @@
-<label for="{{field.field_title | nospace}}id"  class="control-label">{{field.field_title}}</label>
-<textarea type="text" ng-model="field.field_value" class="form-control" id="{{field.field_title | nospace}}id" placeholder="{{field.field_title}}" value="{{field.field_value}}" ng-required="field.field_required"></textarea>
-<span class="required-error" ng-show="field.field_required && !field.field_value">* required</span>
+<div class="form-group">
+	<label for="{{field.field_title | nospace}}id"  class="control-label">{{field.field_title}}</label>
+	<textarea type="text" ng-model="field.field_value" class="form-control" id="{{field.field_title | nospace}}id" placeholder="{{field.field_title}}" value="{{field.field_value}}" ng-required="field.field_required"></textarea>
+	<span class="required-error" ng-show="field.field_required && !field.field_value">* required</span>
+</div>

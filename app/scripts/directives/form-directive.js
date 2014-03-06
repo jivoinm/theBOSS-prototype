@@ -2,12 +2,15 @@
 
 angular.module('theBossApp')
   .directive('formDirective', ['FormService','$dialogs', function (FormService,$dialogs) {
+
     var linker = function(scope, element,attrs) {
         scope.field_types = FormService.fields;
         scope.superuser = true;
         scope.oneAtATime = true;
         scope.loadingList = false;
+        scope.editmode = false;
         scope.formName = attrs.formname;
+        scope.alerts = [];
         FormService.form(scope.formName).then(function(form) {
           if (form) {
             scope.form = form; 
@@ -88,16 +91,17 @@ angular.module('theBossApp')
             }
 
 
-            $scope.addField = function(event,field_type){
+            $scope.addField = function(){
                 
                 var new_field = {
                     field_title: 'New Field',
-                    field_type: field_type
+                    field_type: 'textfield'
                 };
-                if(field_type==='composite-element'){
-                    new_field.composite = [];
-                }
+                // if(field_type==='composite-element'){
+                //     new_field.composite = [];
+                // }
                 $scope.form.form_fields.push(new_field);
+                $scope.alerts.push({msg: "Added new field!"});
             }
 
             $scope.deleteField = function(field){
@@ -149,10 +153,17 @@ angular.module('theBossApp')
 
             // decides whether field options block will be shown (true for dropdown and radio fields)
             $scope.showAddOptions = function (field){
-                if(field && (field.field_type == "radio" || field.field_type == "dropdown"))
+                if(field && (field.field_type === "radio" || field.field_type === "dropdown"))
                     return true;
                 else
                     return false;
+            }
+
+            $scope.IsComposite = function(field){
+                if(field && (field.field_type === "composite")){
+                    return true;
+                }
+                return false;
             }
         },
         templateUrl: './views/directive-templates/form/form.html',

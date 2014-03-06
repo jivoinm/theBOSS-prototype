@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h3>{{selectedfield.field_title}} :: Field Setup</h3>
+</div>
+<div class="modal-body">
+	<div class="form-group">
+		<label for="fieldName">Field Name</label>
+	 	    <input type="text" class="form-control" id="fieldName" placeholder="Field Name" ng-model="selectedfield.field_title" ng-required="true">
+
+	</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

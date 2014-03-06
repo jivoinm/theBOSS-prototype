@@ -5,10 +5,10 @@ angular.module('theBossApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap',
   'dialogs',
   'angularSpinner',
-  'ui.calendar'
+  'ui.calendar',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
