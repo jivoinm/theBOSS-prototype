@@ -1,5 +1,6 @@
-<div class="form-group">
-	<label for="{{field.field_title | nospace}}id"  class="control-label">{{field.field_title}}</label>
+<div class="col-sm-11">
 	<textarea type="text" ng-model="field.field_value" class="form-control" id="{{field.field_title | nospace}}id" placeholder="{{field.field_title}}" value="{{field.field_value}}" ng-required="field.field_required"></textarea>
-	<span class="required-error" ng-show="field.field_required && !field.field_value">* required</span>
+</div>
+<div class="col-sm-1" ng-show="editmode">
+		<a ng-click="open(field)"><span class="glyphicon glyphicon-cog"></span></a>
 </div>

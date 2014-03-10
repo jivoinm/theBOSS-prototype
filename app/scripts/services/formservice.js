@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('theBossApp')
-  .service('FormService', function FormService($http,usSpinnerService,$rootScope) {
+  .service('FormService', ['$http','usSpinnerService','$rootScope','$log', function FormService($http,usSpinnerService,$rootScope,$log) {
 
     return {
         loadingList: false,
@@ -102,9 +102,17 @@ angular.module('theBossApp')
             })
         },
 
-        save: function(form,cbError,cbSuccess) {
+        saveForm: function(form,cbError,cbSuccess) {
             return $http.post('/api/form', form).success(function (response) {
-                    cbSuccess(response.data);
+                cbSuccess(response.data);
+            }).error(function (response){
+                cbError(response.err);
+            });
+        },
+        saveField: function(field,cbError,cbSuccess) {
+            $log.info('field '+field);
+            return $http.post('/api/form/field', field).success(function (response) {
+                cbSuccess(response.data);
             }).error(function (response){
                 cbError(response.err);
             });
@@ -156,4 +164,4 @@ angular.module('theBossApp')
             return range;
         }
     };
-});
+}]);

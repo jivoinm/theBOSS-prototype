@@ -4,7 +4,6 @@ angular.module('theBossApp')
   .directive('formDirective', ['FormService','$dialogs', function (FormService,$dialogs) {
 
     var linker = function(scope, element,attrs) {
-        scope.field_types = FormService.fields;
         scope.superuser = true;
         scope.oneAtATime = true;
         scope.loadingList = false;
@@ -22,7 +21,15 @@ angular.module('theBossApp')
                       module: scope.formName,
                       form_fields:[]
                   };
-                  scope.save();
+                  FormService.saveForm($scope.form,function(res){
+                        $scope.alerts = [
+                            { type: 'danger', msg: 'There was an error saving the form'},
+                            { type: 'danger', msg: res},
+                            ];    
+                    },function(res){
+                        $scope.alerts.push({msg: "Added new field!"});
+                        $scope.editmode = false;
+                    });
               },function(btn){
               });
           }
@@ -35,20 +42,16 @@ angular.module('theBossApp')
                 $scope.form.created_by = $scope.user;
                 FormService.submit($scope.formValueId,$scope.form,function(res){
                     //error cb
-                    $scope.alerts = [
-                            { type: 'danger', msg: 'There was an error submitting the form'},
-                            { type: 'danger', msg: res},
-                            ];    
+                    $scope.alerts.push({type:'danger', msg: res});
 
                    },function(res){
                         FormService.loadingList = true;
                         //success cb
-                        $scope.alerts = [
-                            { type: 'success', msg: 'Form was saved with success'}
-                            ];
+                        $scope.alerts.push({type:'success', msg: "Form was saved with success"});
 
                 })
             };
+           
 
             $scope.$watch(function() { return FormService.editedModelId}, function(newData,oldData) { 
              if(newData && newData !== oldData){
@@ -60,37 +63,16 @@ angular.module('theBossApp')
              }
             },true);
 
-            $scope.$watch('$last', function(newData,oldData) { 
-             if(newData && newData !== oldData){
-                console.log('loaded last');
-                $scope.loaded = true;
-             }
-            },true);
+           
 
-
-            $scope.cancel = function(){
-                alert('Form canceled..');
+            $scope.reset = function(){
+                angular.forEach($scope.form.form_fields,function(field,key){
+                    field.field_value = '';
+                });
+                $scope.alerts.push({type:'success', msg: "Form was reset success"});
             }
 
-            $scope.save = function(){
-                if(!$scope.form || !$scope.form.form_fields || $scope.form.form_fields.length == 0) {
-                    $scope.alerts = [{ type: 'danger', msg: 'No fields added yet, please add fields to the form before saving.'}];
-                } else {
-                    FormService.save($scope.form,function(res){
-                        $scope.alerts = [
-                            { type: 'danger', msg: 'There was an error saving the form'},
-                            { type: 'danger', msg: res},
-                            ];    
-                    },function(res){
-                        $scope.alerts = [
-                            { type: 'success', msg: 'Form was saved with success'}
-                            ];
-                        $scope.editmode = false;
-                    });
-                }
-            }
-
-
+            
             $scope.addField = function(){
                 
                 var new_field = {
@@ -101,7 +83,16 @@ angular.module('theBossApp')
                 //     new_field.composite = [];
                 // }
                 $scope.form.form_fields.push(new_field);
-                $scope.alerts.push({msg: "Added new field!"});
+                FormService.saveForm($scope.form,function(res){
+                        $scope.alerts = [
+                            { type: 'danger', msg: 'There was an error saving the form'},
+                            { type: 'danger', msg: res},
+                            ];    
+                    },function(res){
+                        $scope.alerts.push({msg: "Added new field!"});
+                        $scope.editmode = false;
+                    });
+                
             }
 
             $scope.deleteField = function(field){
@@ -117,54 +108,7 @@ angular.module('theBossApp')
                 });
             }
         
-            // add new option to the field
-            $scope.addOption = function (field){
-                if(!field.field_options)
-                    field.field_options = new Array();
-
-                var lastOptionID = 0;
-
-                if(field.field_options[field.field_options.length-1])
-                    lastOptionID = field.field_options[field.field_options.length-1].option_id;
-
-                // new option's id
-                var option_id = lastOptionID + 1;
-
-                var newOption = {
-                    "option_id" : option_id,
-                    "option_title" : "Option " + option_id,
-                    "option_value" : option_id
-                };
-
-                // put new option into field_options array
-                field.field_options.push(newOption);
-            }
-
-            // delete particular option
-            $scope.deleteOption = function (field, option){
-                for(var i = 0; i < field.field_options.length; i++){
-                    if(field.field_options[i].option_id == option.option_id){
-                        field.field_options.splice(i, 1);
-                        break;
-                    }
-                }
-            }
-
-
-            // decides whether field options block will be shown (true for dropdown and radio fields)
-            $scope.showAddOptions = function (field){
-                if(field && (field.field_type === "radio" || field.field_type === "dropdown"))
-                    return true;
-                else
-                    return false;
-            }
-
-            $scope.IsComposite = function(field){
-                if(field && (field.field_type === "composite")){
-                    return true;
-                }
-                return false;
-            }
+           
         },
         templateUrl: './views/directive-templates/form/form.html',
         restrict: 'EA',

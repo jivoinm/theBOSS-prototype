@@ -8,7 +8,8 @@ angular.module('theBossApp', [
   'dialogs',
   'angularSpinner',
   'ui.calendar',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.select2'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
