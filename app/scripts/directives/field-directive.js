@@ -3,6 +3,7 @@
 angular.module('theBossApp')
   .directive('fieldDirective', ['$http','$compile','$modal','$log','FormService', function ($http,$compile,$modal,$log,FormService) {
         var getTemplateUrl = function(field) {
+
             var type = field.field_type;
             var templateUrl = '/views/directive-templates/field/'+type+'.html';
             

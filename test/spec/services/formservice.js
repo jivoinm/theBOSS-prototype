@@ -6,13 +6,13 @@ describe('Service: Formservice', function () {
   beforeEach(module('theBossApp'));
 
   // instantiate service
-  var Formservice;
-  beforeEach(inject(function (_Formservice_) {
-    Formservice = _Formservice_;
+  var FormService;
+  beforeEach(inject(function (_FormService_) {
+    FormService = _FormService_;
   }));
 
   it('should do something', function () {
-    expect(!!Formservice).toBe(true);
+    expect(!!FormService).toBe(true);
   });
 
 });

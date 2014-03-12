@@ -1,28 +1,41 @@
 'use strict';
+describe('Controller:CalendarCtrl', function () {
+    //Date Objects needed for event
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+    var scope, $compile, $locale, $controller, CalendarCtrl, calendar;
 
-describe('Controller: CalendarCtrl', function () {
+    beforeEach(module('ui.calendar'));
+    beforeEach(module('theBossApp'));
 
-  // load the controller's module
-  beforeEach(module('theBossApp'));
+    beforeEach(inject(function (_$compile_,_$controller_, _$rootScope_,_$locale_,Calendar) {
+        scope = _$rootScope_.$new();
+        $compile = _$compile_;
+        $controller = _$controller_;
+        $locale = _$locale_;
 
-  var CalendarCtrl,
-    scope,
-    $httpBackend;
+        calendar = Calendar;
+        var res = spyOn(calendar, 'getMonthEvents').andReturn([{id:123,title:'Title'}]);
+        CalendarCtrl = $controller('CalendarCtrl', {
+            $scope: scope,
+            Calendar:calendar
+        });
+    }));
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function (_$httpBackend_, $controller, $rootScope) {
-    $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('/api/awesomeThings')
-      .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
-    scope = $rootScope.$new();
-    CalendarCtrl = $controller('CalendarCtrl', {
-      $scope: scope
+
+    it('expects the calendar to load current month calendar by default', function() {
+        expect(scope.events.length).toBe(1);
     });
-  }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings).toBeUndefined();
-    $httpBackend.flush();
-    expect(scope.awesomeThings.length).toBe(4);
-  });
+    describe('expecting that calendar on event drop to check if the day and time slot is available', function(){
+        beforeEach(function(){
+            spyOn(calendar, 'isSlotAvailable').andReturn({isAvailable:false,reason:'The error'});
+            scope.alertOnDrop({date:date,title:'Title event'}, 1, 0, true, function(){}, null, null, null);
+        })
+        it('expect to show aflert if new time slot is not avilable on new event drop', function() {
+            expect(scope.alertMessage).toBe(('The error'));
+        });
+    });
 });
