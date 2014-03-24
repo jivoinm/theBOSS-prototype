@@ -2,42 +2,33 @@
 
 describe('Directive: formDirective', function () {
 
-  // load the directive's module
-  beforeEach(module('theBossApp'));
+    // load the directive's module
+    beforeEach(module('theBossApp'));
 
-  var element, scope, FormService;
+    var element, scope, frmService,httpMock,compile,dlg;
 
-  beforeEach(inject(function ($rootScope,FormService) {
-    scope = $rootScope.$new();
-    FormService = FormService;
-  }));
+    beforeEach(inject(function ($rootScope,$httpBackend,FormService,$compile,$dialogs) {
+        scope = $rootScope.$new();
+        httpMock = $httpBackend;
+        frmService = FormService;
+        compile = $compile;
+        dlg = $dialogs;
+        element = angular.element('<div formname="myform" form-directive></div>');
+    }));
 
-  describe('when created', function () {
-      it('should try to load existing model', function () {
-          var elm;
-          //arrange
-          scope.formname = 'TestForm';
-          FormService.form(scope.formname).then()
-          //act
-          elm = compile(validHTML)(scope);
-          //assert
-          expect(elm.text()).toBe('Hello Test');
-      });
+    afterEach(function() {
+        httpMock.verifyNoOutstandingExpectation();
+        httpMock.verifyNoOutstandingRequest();
+    });
 
-      it('should watch for changes in the model', function () {
-          var elm;
-          
-          //this is super brittle is there a better way!?
-          elm = compile(validHTML)(scope);
-          expect(elm.scope().$$watchers[0].exp).toBe('name');
-          
-          /* This version works fine when the scope is NOT isolated
-          spyOn(scope, '$watch');
-          elm = compile(validHTML)(scope);
-          expect(scope.$watch.callCount).toBe(1);
-          expect(scope.$watch).toHaveBeenCalledWith('name', jasmine.any(Function));
-          */
-      });
-  });
+    it("should verify if the form with the name set already exists and if not ask to be created", function (){
+        httpMock.expectGET('/views/directive-templates/form/form.html').respond('something');
+        httpMock.expectGET('/api/form/myform').respond(null);
+        element = compile(element)(scope);
+        scope.$digest();
+        httpMock.flush();
+        spyOn(dlg, "confirm").andCallThrough();
+        expect(scope.form).toBe({form_name: 'myform', module: 'myform',form_fields:[]});
+    });
 
 });
